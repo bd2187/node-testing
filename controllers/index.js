@@ -4,6 +4,6 @@ module.exports = function(app) {
   });
 
   app.get("/error", (req, res) => {
-    res.status(404).send({ error: "Sorry, page not found" });
+    res.status(404).json({ error: "Sorry, page not found" });
   });
 };
