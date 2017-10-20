@@ -1,8 +1,10 @@
-const request = require("request");
+const request = require("supertest");
+const { app } = require("./app");
 
-it("should add to a number", () => {
-  var result = 2 + 1;
-  if (result !== 4) {
-    throw new Error(`Expected 4 but got ${result}`);
-  }
+it("should display hello world", done => {
+  request(app)
+    .get("/")
+    .expect(200)
+    .expect("hello world")
+    .end(done);
 });
